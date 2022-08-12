@@ -1,3 +1,4 @@
+import { Todolist } from './../todo';
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TaskPage } from '../task/task.page';
@@ -9,8 +10,9 @@ import { TaskPage } from '../task/task.page';
 })
 export class HomePage {
   message = 'tâche';
-  Todo : any[] = [];
+  Todo : Todolist[] = [];
   elt : string = "";
+  isCompleted : boolean;
 
   constructor(private modalCtrl: ModalController) {}
 
@@ -25,14 +27,18 @@ export class HomePage {
     if (role === 'confirm') {
       //remplir l'array Todo
       this.elt = `${data}`;
-      let todo = {id:this.Todo.length, name:this.elt};
+      this.isCompleted = true;
+      let todo = {id:this.Todo.length, name:this.elt, state:this.isCompleted};
       this.Todo.push(todo);
     }
   }
 
   remove(n:number){
     //supprimer des elts de l'array Todo
-    
-    this.Todo = this.Todo.filter((i => i.id !== n));
+
+    this.Todo = this.Todo.filter(((v,i) => i !== n));
+  }
+  done(id:number){
+    this.Todo[id].isCompleted =  !this.Todo[id].isCompleted;
   }
 }

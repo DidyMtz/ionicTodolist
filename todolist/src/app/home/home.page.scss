@@ -1,7 +1,7 @@
 
 ion-content{
 
-  --background-color:rgba(255, 255, 255, 0.938);
+  --ion-background-color:rgba(33, 33, 33, 0.3);
 }
 
 #container {
@@ -30,4 +30,11 @@ ion-content{
 
 #container a {
   text-decoration: none;
+}
+
+.done{
+  text-decoration: line-through;
+}
+.list{
+  padding: 8px;
 }

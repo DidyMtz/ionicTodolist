@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>task</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Annuler</ion-button>
+    </ion-buttons>
+    <ion-title>Bienvenu(e)</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()">Confirmer</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">tâche</ion-label>
+    <ion-input [(ngModel)]="name" placeholder="Ajouter une tâche"></ion-input>
+  </ion-item>
 </ion-content>
